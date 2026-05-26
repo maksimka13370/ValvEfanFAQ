@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valve: Факты и База Знаний (FAQ)</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Шапка -->
+    <header>
+        <div class="container navbar">
+            <div class="logo">VALVE <span>INFO</span></div>
+            <nav>
+                <a href="#facts-section">Интересные факты</a>
+                <a href="#faq-section">Решение багов (FAQ)</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Блок: Интересные факты -->
+        <section id="facts-section" class="section-padding">
+            <h2 class="section-title">Интересные факты о Valve</h2>
+            <div class="facts-grid">
+                <div class="fact-card">
+                    <h3>Тайна красного вентиля</h3>
+                    <p>Человек с вентилем на заставках игр — это не актер. Сотрудники Valve просто вышли на улицу Сиэтла и нашли случайного прохожего с колоритной внешностью, предложив ему сфотографироваться.</p>
+                </div>
+                <div class="fact-card">
+                    <h3>Плоская структура</h3>
+                    <p>В Valve официально нет начальников и менеджеров. Все рабочие столы сотрудников оснащены колесиками — каждый может пересесть в любую команду и заниматься тем проектом, который ему интересен прямо сейчас.</p>
+                </div>
+                <div class="fact-card">
+                    <h3>Зарождение Steam</h3>
+                    <p>Изначально Steam создавался в 2002 году не как магазин, а просто как удобная утилита для автоматического скачивания патчей к Counter-Strike 1.6, так как игроки постоянно путались в версиях.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Блок: Ответы на вопросы и баги -->
+        <section id="faq-section" class="section-padding">
+            <h2 class="section-title">Решение частых багов и FAQ</h2>
+            <div class="faq-container">
+                
+                <!-- Вопрос 1 -->
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFaq(this)">
+                        <span>Как исправить ошибку «Проверка целостности файлов игры» в Steam?</span>
+                        <span class="icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Нажмите правой кнопкой мыши по игре в Steam -> Свойства -> Установленные файлы -> Проверить целостность файлов. Steam автоматически перекачает поврежденные или недостающие текстуры и скрипты.</p>
+                    </div>
+                </div>
+
+                <!-- Вопрос 2 -->
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFaq(this)">
+                        <span>CS2 / Dota 2 вылетает без ошибки на рабочий стол. Что делать?</span>
+                        <span class="icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Чаще всего это связано с устаревшим кэшем шейдеров или конфликтом драйверов. Решение:</p>
+                        <ul>
+                            <li>Обновите драйвер видеокарты до последней версии.</li>
+                            <li>В параметрах запуска игры в Steam пропишите: <code>-safe</code> или <code>-vulkan</code> (для проверки стабильности).</li>
+                            <li>Отключите сторонние оверлеи (Discord, GeForce Experience).</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Вопрос 3 -->
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFaq(this)">
+                        <span>Что делать, если сильно скачет пинг в играх Valve?</span>
+                        <span class="icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>В настройках игры ограничьте максимальный допустимый пинг для подбора матчей (например, до 50 мс). Также в настройках Steam во вкладке «Загрузки» убедитесь, что регион загрузки совпадает с вашей реальной страной, и отключите пункт «Разрешать загрузки во время игры».</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // Функция для раскрытия и скрытия ответов на вопросы
+        function toggleFaq(button) {
+            const answer = button.nextElementSibling;
+            const icon = button.querySelector('.icon');
+            
+            if (answer.style.maxHeight) {
+                answer.style.maxHeight = null;
+                answer.style.padding = "0 20px";
+                icon.innerText = "+";
+                button.classList.remove('active');
+            } else {
+                answer.style.maxHeight = answer.scrollHeight + "px";
+                answer.style.padding = "15px 20px";
+                icon.innerText = "−";
+                button.classList.add('active');
+            }
+        }
+    </script>
+</body>
+</html>
